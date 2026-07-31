@@ -4,6 +4,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"sync"
 	"testing"
@@ -73,11 +74,22 @@ func TestRun_NotRoot(t *testing.T) {
 	}
 }
 
-func TestCheckPlatform_Success(t *testing.T) {
+// checkPlatform gates on the host OS, so the expected result depends on
+// where the suite runs: nil on Linux, an error anywhere else. Asserting
+// both directions covers the reject branch too, which never ran while
+// this test assumed a Linux runner.
+func TestCheckPlatform(t *testing.T) {
 	inst := NewWithExec(mockExecSuccess, "")
 	err := inst.checkPlatform()
-	if err != nil {
-		t.Errorf("checkPlatform failed on linux: %v", err)
+
+	if runtime.GOOS == "linux" {
+		if err != nil {
+			t.Errorf("checkPlatform on linux: unexpected error: %v", err)
+		}
+		return
+	}
+	if err == nil {
+		t.Errorf("checkPlatform on %s: expected an error, got nil", runtime.GOOS)
 	}
 }
 

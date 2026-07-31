@@ -98,8 +98,13 @@ func TestImagePruneScript_SyntaxChecksOut(t *testing.T) {
 
 // TestDetectHostCores_SanityCheck validates nproc returns >= 1 on the
 // test runner. No way to mock the exec without restructuring; the test
-// just makes sure the function path works.
+// just makes sure the function path works. nproc is coreutils, so it is
+// absent on non-Linux dev machines — skip there rather than failing, the
+// same way the MemTotal check below does.
 func TestDetectHostCores_SanityCheck(t *testing.T) {
+	if _, err := exec.LookPath("nproc"); err != nil {
+		t.Skip("no nproc on this platform")
+	}
 	n, err := detectHostCores()
 	if err != nil {
 		t.Fatalf("detectHostCores: %v", err)
