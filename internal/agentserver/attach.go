@@ -59,10 +59,10 @@ type AttachHooks struct {
 // particular); anything else is refused.
 //
 // Flow:
-//   1. Read one line of JSON from ch — the AttachRequest.
-//   2. Ask target.Start for a PTY bound to that container.
-//   3. Bridge ch <-> pty until either side closes.
-//   4. Forward window-change requests to the pty resize fn.
+//  1. Read one line of JSON from ch — the AttachRequest.
+//  2. Ask target.Start for a PTY bound to that container.
+//  3. Bridge ch <-> pty until either side closes.
+//  4. Forward window-change requests to the pty resize fn.
 func HandleAttach(ctx context.Context, ch ssh.Channel, reqs <-chan *ssh.Request, target AttachTarget, hooks AttachHooks) {
 	defer ch.Close()
 
@@ -165,7 +165,9 @@ func writeAttachError(w io.Writer, msg string) {
 
 // DockerAttachTarget is the production AttachTarget: resolves the session
 // UUID to a container name, runs
-//   docker exec -it convocate-session-<uuid> sudo -u claude -- tmux attach-session -t claude
+//
+//	docker exec -it convocate-session-<uuid> sudo -u claude -- tmux attach-session -t claude
+//
 // in a local PTY, and returns the PTY master for byte relay.
 //
 // ExistsFn lets the target refuse attach for sessions the agent doesn't

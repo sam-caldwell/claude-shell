@@ -20,16 +20,16 @@ func init() {
 // orchestrate is the top-level flow for `convocate-host create-vm`.
 // Phases:
 //
-//   1. Dial hypervisor (key-then-password)
-//   2. Install operator's pubkey + harden sshd
-//   3. Generate random hostname → set on hypervisor → register A
-//      record in shell's dnsmasq
-//   4. apt update/upgrade + reboot, then reconnect with retries
-//   5. Download Ubuntu ISO locally (cached + sha256-verified)
-//   6. Configure hypervisor dnsmasq (forward to shell, fallback gw)
-//   7. Install KVM stack + verify /dev/kvm
-//   8. Detect host resources → cap machine.slice (Layer 2)
-//   9. Query existing pledges → admission check (Layer 1)
+//  1. Dial hypervisor (key-then-password)
+//  2. Install operator's pubkey + harden sshd
+//  3. Generate random hostname → set on hypervisor → register A
+//     record in shell's dnsmasq
+//  4. apt update/upgrade + reboot, then reconnect with retries
+//  5. Download Ubuntu ISO locally (cached + sha256-verified)
+//  6. Configure hypervisor dnsmasq (forward to shell, fallback gw)
+//  7. Install KVM stack + verify /dev/kvm
+//  8. Detect host resources → cap machine.slice (Layer 2)
+//  9. Query existing pledges → admission check (Layer 1)
 //  10. SCP Ubuntu ISO to hypervisor + build autoinstall seed ISO
 //  11. virt-install --import → unattended install runs in VM
 //

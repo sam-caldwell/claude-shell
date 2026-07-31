@@ -239,4 +239,3 @@ systemctl reload ssh || systemctl reload sshd
 
 	return r.Run(ctx, cmd, RunOptions{Sudo: true})
 }
-

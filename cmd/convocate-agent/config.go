@@ -11,16 +11,16 @@ import (
 // Well-known on-disk paths for convocate-agent. Tests can override via package
 // vars where useful, but the defaults reflect production layout.
 const (
-	defaultEtcDir         = "/etc/convocate-agent"
-	defaultHostKeyPath    = "/etc/convocate-agent/ssh_host_ed25519_key"
-	defaultAgentIDPath    = "/etc/convocate-agent/agent-id"
-	defaultBinaryPath     = "/usr/local/bin/convocate-agent"
-	defaultSystemdUnit    = "/etc/systemd/system/convocate-agent.service"
-	defaultAuthKeysPath   = "/home/convocate/.ssh/authorized_keys"
-	defaultAuthKeysDir    = "/home/convocate/.ssh"
+	defaultEtcDir            = "/etc/convocate-agent"
+	defaultHostKeyPath       = "/etc/convocate-agent/ssh_host_ed25519_key"
+	defaultAgentIDPath       = "/etc/convocate-agent/agent-id"
+	defaultBinaryPath        = "/usr/local/bin/convocate-agent"
+	defaultSystemdUnit       = "/etc/systemd/system/convocate-agent.service"
+	defaultAuthKeysPath      = "/home/convocate/.ssh/authorized_keys"
+	defaultAuthKeysDir       = "/home/convocate/.ssh"
 	defaultConvocateHomeDir  = "/home/convocate"
 	defaultConvocateUsername = "convocate"
-	defaultListen         = ":222"
+	defaultListen            = ":222"
 
 	// Shell-peering paths. The agent→shell SSH private key and the shell
 	// host's address live in the /etc/convocate-agent config area so

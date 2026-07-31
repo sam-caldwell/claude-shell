@@ -30,11 +30,11 @@ type UpdateOptions struct {
 // remote host. Omitting a target (by setting its LocalBinaryResolver to nil
 // or the remote path to "") means "we don't manage this here".
 type updateTarget struct {
-	Name              string
-	RemotePath        string // /usr/local/bin/claude-...
+	Name                string
+	RemotePath          string // /usr/local/bin/claude-...
 	LocalBinaryOverride string
-	ServiceName       string // systemd unit to restart after install
-	BinaryResolver    func(override string) (string, error)
+	ServiceName         string // systemd unit to restart after install
+	BinaryResolver      func(override string) (string, error)
 }
 
 // Update detects which claude-* binaries are installed on r, uploads fresh

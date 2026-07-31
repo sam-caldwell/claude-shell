@@ -6,7 +6,7 @@ LDFLAGS := -ldflags "-s -w -X main.Version=$(VERSION)"
 
 BINARIES := convocate convocate-host convocate-agent
 
-.PHONY: all generate build build-convocate build-convocate-host build-convocate-agent install clean lint lint-go lint-yaml lint-json lint-vuln test test-unit test-integration test-e2e release release/major release/minor
+.PHONY: all generate build build-convocate build-convocate-host build-convocate-agent install clean fmt lint lint-fmt lint-go lint-yaml lint-json lint-vuln test test-unit test-integration test-e2e release release/major release/minor
 
 all: lint test build
 
@@ -48,8 +48,26 @@ clean:
 	@$(GO) clean -testcache
 	@echo "Clean complete."
 
-lint: lint-go lint-yaml lint-vuln
+lint: lint-fmt lint-go lint-yaml lint-vuln
 	@echo "All linters passed."
+
+# fmt rewrites sources in place; lint-fmt only reports. Formatting drifted
+# unnoticed across 24 files during the project-wide rename — the longer
+# identifiers broke struct field alignment and nothing in lint looked at
+# gofmt. Keep lint-fmt in the lint chain so that can't recur.
+fmt:
+	@echo "Formatting Go sources..."
+	@gofmt -w .
+
+lint-fmt:
+	@echo "Checking Go formatting..."
+	@unformatted=$$(gofmt -l . 2>/dev/null); \
+	if [ -n "$$unformatted" ]; then \
+		echo "The following files are not gofmt-clean:"; \
+		echo "$$unformatted" | sed 's/^/  /'; \
+		echo "Run 'make fmt' to fix."; \
+		exit 1; \
+	fi
 
 lint-go:
 	@echo "Running Go linter..."

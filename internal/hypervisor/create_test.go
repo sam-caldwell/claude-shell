@@ -103,9 +103,9 @@ func (f *orchestrateFixture) preset() {
 	// Default mock command outputs covering all virsh / nproc / mem
 	// queries. Tests can extend cmdStdout per-test.
 	f.mock.cmdStdout["nproc"] = "4\n"
-	f.mock.cmdStdout["awk '/^MemTotal:/"] = "8388608\n"             // 8 GiB
-	f.mock.cmdStdout["df -B1 --output=size"] = "107374182400\n"     // 100 GiB
-	f.mock.cmdStdout["virsh list --all --name"] = "\n"               // no existing VMs
+	f.mock.cmdStdout["awk '/^MemTotal:/"] = "8388608\n"         // 8 GiB
+	f.mock.cmdStdout["df -B1 --output=size"] = "107374182400\n" // 100 GiB
+	f.mock.cmdStdout["virsh list --all --name"] = "\n"          // no existing VMs
 	f.mock.cmdStdout["virsh vol-list"] = ""
 	f.mock.cmdStdout["ip -4 route show default"] = "default via 10.0.0.1 dev eth0\n"
 }

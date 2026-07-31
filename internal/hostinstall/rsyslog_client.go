@@ -18,9 +18,9 @@ const RsyslogAgentTLSDir = "/etc/convocate-agent/rsyslog-tls"
 
 // rsyslogClientConfigTpl is the rsyslog drop-in that forwards every
 // message to the shell host's TLS listener. %s placeholders are, in order:
-//   1. agent-id    — stamped into $LocalHostName so the shell routes to
-//                    /var/log/convocate-agent/<agent-id>.log
-//   2. shell-host  — DNS / IP of the convocate listener
+//  1. agent-id    — stamped into $LocalHostName so the shell routes to
+//     /var/log/convocate-agent/<agent-id>.log
+//  2. shell-host  — DNS / IP of the convocate listener
 const rsyslogClientConfigTpl = `# Managed by convocate-host init-agent. Do not edit by hand.
 
 # Stamp messages with our agent-id as hostname so the shell receiver
@@ -59,8 +59,8 @@ action(
 // immediately starts shipping logs.
 //
 // CA material is resolved in order:
-//   1. explicit --ca-cert / --ca-key paths passed through the options
-//   2. <localShellEtcDir>/rsyslog-ca/{ca.crt,ca.key} (on-shell default)
+//  1. explicit --ca-cert / --ca-key paths passed through the options
+//  2. <localShellEtcDir>/rsyslog-ca/{ca.crt,ca.key} (on-shell default)
 //
 // Path (1) lets an operator run init-agent from a workstation with the
 // CA copied locally; (2) is the common case of "install from the shell

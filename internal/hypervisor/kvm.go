@@ -10,13 +10,13 @@ import (
 // kvmPackages lists everything apt installs to turn a vanilla Ubuntu
 // host into a working KVM hypervisor for our flow:
 //
-//   qemu-kvm                  hypervisor binaries
-//   libvirt-daemon-system     libvirtd + virsh
-//   libvirt-clients           virt-install / virsh client tools
-//   virtinst                  virt-install scripting wrapper
-//   bridge-utils              bridge networking
-//   cloud-image-utils         cloud-localds (NoCloud seed builder)
-//   genisoimage               fallback seed ISO builder
+//	qemu-kvm                  hypervisor binaries
+//	libvirt-daemon-system     libvirtd + virsh
+//	libvirt-clients           virt-install / virsh client tools
+//	virtinst                  virt-install scripting wrapper
+//	bridge-utils              bridge networking
+//	cloud-image-utils         cloud-localds (NoCloud seed builder)
+//	genisoimage               fallback seed ISO builder
 const kvmPackages = `qemu-kvm libvirt-daemon-system libvirt-clients virtinst bridge-utils cloud-image-utils genisoimage`
 
 // InstallKVMStack installs the apt packages needed to run KVM VMs,

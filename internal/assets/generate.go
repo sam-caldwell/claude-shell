@@ -14,8 +14,8 @@ import (
 func main() {
 	// Map source files (relative to repo root) to output names in data/
 	assets := map[string]string{
-		"Dockerfile":    "data/Dockerfile.gz",
-		"entrypoint.sh": "data/entrypoint.sh.gz",
+		"Dockerfile":     "data/Dockerfile.gz",
+		"entrypoint.sh":  "data/entrypoint.sh.gz",
 		"skel/CLAUDE.md": "data/CLAUDE.md.gz",
 	}
 

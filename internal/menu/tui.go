@@ -26,16 +26,16 @@ var loadAverageReader = func() (string, bool) {
 }
 
 var (
-	titleStyle     = tcell.StyleDefault.Foreground(tcell.ColorWhite).Background(tcell.ColorBlue)
-	menuBarStyle   = tcell.StyleDefault.Foreground(tcell.ColorYellow).Background(tcell.ColorBlue)
-	headerStyle    = tcell.StyleDefault.Foreground(tcell.ColorYellow).Bold(true)
-	normalStyle    = tcell.StyleDefault
-	selectedStyle  = tcell.StyleDefault.Foreground(tcell.ColorBlack).Background(tcell.ColorWhite)
-	separatorStyle = tcell.StyleDefault.Foreground(tcell.ColorGray)
-	dialogStyle    = tcell.StyleDefault.Foreground(tcell.ColorWhite).Background(tcell.ColorDarkBlue)
-	dialogErrStyle = tcell.StyleDefault.Foreground(tcell.ColorRed).Background(tcell.ColorDarkBlue)
+	titleStyle      = tcell.StyleDefault.Foreground(tcell.ColorWhite).Background(tcell.ColorBlue)
+	menuBarStyle    = tcell.StyleDefault.Foreground(tcell.ColorYellow).Background(tcell.ColorBlue)
+	headerStyle     = tcell.StyleDefault.Foreground(tcell.ColorYellow).Bold(true)
+	normalStyle     = tcell.StyleDefault
+	selectedStyle   = tcell.StyleDefault.Foreground(tcell.ColorBlack).Background(tcell.ColorWhite)
+	separatorStyle  = tcell.StyleDefault.Foreground(tcell.ColorGray)
+	dialogStyle     = tcell.StyleDefault.Foreground(tcell.ColorWhite).Background(tcell.ColorDarkBlue)
+	dialogErrStyle  = tcell.StyleDefault.Foreground(tcell.ColorRed).Background(tcell.ColorDarkBlue)
 	dialogWarnStyle = tcell.StyleDefault.Foreground(tcell.ColorYellow).Background(tcell.ColorRed)
-	inputStyle     = tcell.StyleDefault.Foreground(tcell.ColorWhite).Background(tcell.ColorBlack)
+	inputStyle      = tcell.StyleDefault.Foreground(tcell.ColorWhite).Background(tcell.ColorBlack)
 )
 
 type tuiMode int

@@ -370,4 +370,3 @@ func splitHostPort(t *testing.T, addr string) (string, int) {
 	}
 	return host, p
 }
-

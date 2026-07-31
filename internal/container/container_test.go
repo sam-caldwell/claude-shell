@@ -23,11 +23,11 @@ func testUserInfo() user.Info {
 func testPaths() config.Paths {
 	return config.Paths{
 		ConvocateHome:   "/home/convocate",
-		SessionsBase: "/home/convocate",
-		SkelDir:      "/home/convocate/.skel",
+		SessionsBase:    "/home/convocate",
+		SkelDir:         "/home/convocate/.skel",
 		ConvocateConfig: "/home/convocate/.claude",
-		SSHDir:       "/home/convocate/.ssh",
-		GitConfig:    "/home/convocate/.gitconfig",
+		SSHDir:          "/home/convocate/.ssh",
+		GitConfig:       "/home/convocate/.gitconfig",
 	}
 }
 
@@ -72,11 +72,11 @@ func TestBuildRunArgs(t *testing.T) {
 
 	paths := config.Paths{
 		ConvocateHome:   tmpDir,
-		SessionsBase: tmpDir,
-		SkelDir:      filepath.Join(tmpDir, ".skel"),
+		SessionsBase:    tmpDir,
+		SkelDir:         filepath.Join(tmpDir, ".skel"),
 		ConvocateConfig: convocateConfig,
-		SSHDir:       sshDir,
-		GitConfig:    gitConfig,
+		SSHDir:          sshDir,
+		GitConfig:       gitConfig,
 	}
 
 	sessionDir := filepath.Join(tmpDir, "test-session")
@@ -116,10 +116,10 @@ func TestBuildRunArgs(t *testing.T) {
 func TestBuildRunArgs_NoSSH(t *testing.T) {
 	paths := config.Paths{
 		ConvocateHome:   "/nonexistent",
-		SessionsBase: "/nonexistent",
+		SessionsBase:    "/nonexistent",
 		ConvocateConfig: "/nonexistent/.claude",
-		SSHDir:       "/nonexistent/.ssh",
-		GitConfig:    "/nonexistent/.gitconfig",
+		SSHDir:          "/nonexistent/.ssh",
+		GitConfig:       "/nonexistent/.gitconfig",
 	}
 
 	r := NewRunner("test-uuid", "/tmp/session", testUserInfo(), paths)

@@ -12,8 +12,8 @@ import (
 func TestRsyslogServerStep_GeneratesCA_WhenMissing(t *testing.T) {
 	m := &mockRunner{
 		cmdStdout: map[string]string{
-			"hostname -f":                                         "shell.example\n",
-			"test -f '/etc/convocate/rsyslog-ca/ca.crt'":       "NO\n",
+			"hostname -f": "shell.example\n",
+			"test -f '/etc/convocate/rsyslog-ca/ca.crt'": "NO\n",
 		},
 	}
 	var log bytes.Buffer
@@ -100,7 +100,7 @@ func TestRsyslogServerStep_ReusesExistingCA(t *testing.T) {
 	}
 	m := &mockRunner{
 		cmdStdout: map[string]string{
-			"hostname -f":                                   "shell.example\n",
+			"hostname -f": "shell.example\n",
 			"test -f '/etc/convocate/rsyslog-ca/ca.crt'": "YES\n",
 			"cat '/etc/convocate/rsyslog-ca/ca.crt'":     string(existing.CertPEM),
 			"cat '/etc/convocate/rsyslog-ca/ca.key'":     string(existing.KeyPEM),

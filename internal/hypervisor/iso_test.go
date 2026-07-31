@@ -90,11 +90,11 @@ func TestDetectArch_KnownArchs(t *testing.T) {
 
 func TestBaseRelease(t *testing.T) {
 	cases := map[string]string{
-		"22.04.5":    "22.04",
-		"22.04":      "22.04",
-		"22.04.5.1":  "22.04",
-		"24.04":      "24.04",
-		"weird":      "weird",
+		"22.04.5":   "22.04",
+		"22.04":     "22.04",
+		"22.04.5.1": "22.04",
+		"24.04":     "24.04",
+		"weird":     "weird",
 	}
 	for in, want := range cases {
 		if got := baseRelease(in); got != want {

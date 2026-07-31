@@ -101,8 +101,8 @@ func TestDetectResources_FallbackDfPath(t *testing.T) {
 	// to error so we exercise the fallback branch deterministically.
 	m := &mockRunner{
 		cmdStdout: map[string]string{
-			"nproc":             "2\n",
-			"awk '/^MemTotal:/": "1048576\n",
+			"nproc":                            "2\n",
+			"awk '/^MemTotal:/":                "1048576\n",
 			"df -B1 --output=size /var | tail": "53687091200\n",
 		},
 		failOn: map[string]error{
@@ -193,7 +193,7 @@ func TestCapMachineSlice_ScriptShape(t *testing.T) {
 	body := m.cmds[0].Cmd
 	for _, want := range []string{
 		"/etc/systemd/system/machine.slice.d/99-convocate-cap.conf",
-		"CPUQuota=720%", // 8 * 90
+		"CPUQuota=720%",         // 8 * 90
 		"MemoryMax=15461882265", // 16384 * 1024 * 1024 * 90 / 100
 		"systemctl daemon-reload",
 	} {

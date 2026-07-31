@@ -77,8 +77,8 @@ type domainInfo struct {
 // readDomainInfo parses `virsh dominfo <name>` and pulls out CPU
 // count + max memory. Lines look like:
 //
-//   CPU(s):         4
-//   Max memory:     8388608 KiB
+//	CPU(s):         4
+//	Max memory:     8388608 KiB
 //
 // Memory is reported in KiB by libvirt — the converter divides by
 // 1024 to get the MB scale used by the rest of the package.
@@ -111,9 +111,9 @@ func readDomainInfo(ctx context.Context, r Runner, name string) (domainInfo, err
 // totalPoolCapacityGB sums the capacity of every volume in libvirt's
 // default storage pool. virsh vol-list --details prints columns:
 //
-//   Name           Path                            Type    Capacity     Allocation
-//   ---------------------------------------------------------------------------
-//   vm1.qcow2      /var/lib/libvirt/images/...     file    50.00 GiB    32.00 GiB
+//	Name           Path                            Type    Capacity     Allocation
+//	---------------------------------------------------------------------------
+//	vm1.qcow2      /var/lib/libvirt/images/...     file    50.00 GiB    32.00 GiB
 //
 // We parse the "Capacity" column. Errors fall through to a 0 result —
 // admission then lacks disk-axis info but CPU/RAM still gate.

@@ -236,4 +236,3 @@ func remoteHostname(ctx context.Context, r Runner, log io.Writer) (string, error
 	}
 	return name, nil
 }
-

@@ -108,9 +108,9 @@ func TestNewSSHRunner_DefaultsApplied(t *testing.T) {
 	// defaulting branches run.
 	_, err := NewSSHRunner(SSHConfig{
 		Host:    "127.0.0.1",
-		Port:    0,                   // default 22
-		User:    "",                  // default $USER
-		Timeout: 0,                   // default 15s
+		Port:    0,  // default 22
+		User:    "", // default $USER
+		Timeout: 0,  // default 15s
 	})
 	if err == nil {
 		t.Error("expected dial to fail against unreachable host")

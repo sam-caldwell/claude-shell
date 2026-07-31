@@ -102,8 +102,8 @@ func newFakeTarget() (*fakeTarget, *io.PipeReader, *io.PipeWriter) {
 
 	ft := &fakeTarget{
 		master:        &duplex{in: cOut, out: tOut},
-		fromContainer: tIn,   // tests read this to see what client sent
-		toContainer:   cIn,   // tests write this to simulate container output
+		fromContainer: tIn, // tests read this to see what client sent
+		toContainer:   cIn, // tests write this to simulate container output
 		waited:        make(chan struct{}),
 	}
 	return ft, tIn, cIn

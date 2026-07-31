@@ -127,7 +127,7 @@ func TestInitAgent_EndToEnd(t *testing.T) {
 		"/etc/convocate-agent/rsyslog-tls/ca.crt":         0644,
 		"/etc/convocate-agent/rsyslog-tls/client.crt":     0644,
 		"/etc/convocate-agent/rsyslog-tls/client.key":     0600,
-		"/etc/rsyslog.d/10-convocate-client.conf":   0644,
+		"/etc/rsyslog.d/10-convocate-client.conf":         0644,
 		"/etc/convocate-agent/current-image":              0644,
 	}
 	for _, c := range m.copies {

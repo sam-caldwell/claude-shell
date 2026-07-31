@@ -59,11 +59,11 @@ func testUserInfo() user.Info {
 func testPaths() config.Paths {
 	return config.Paths{
 		ConvocateHome:   "/home/convocate",
-		SessionsBase: "/home/convocate",
-		SkelDir:      "/home/convocate/.skel",
+		SessionsBase:    "/home/convocate",
+		SkelDir:         "/home/convocate/.skel",
 		ConvocateConfig: "/home/convocate/.claude",
-		SSHDir:       "/home/convocate/.ssh",
-		GitConfig:    "/home/convocate/.gitconfig",
+		SSHDir:          "/home/convocate/.ssh",
+		GitConfig:       "/home/convocate/.gitconfig",
 	}
 }
 

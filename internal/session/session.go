@@ -102,6 +102,7 @@ func ValidateProtocol(s string) (string, error) {
 //   - ASCII letters, digits, hyphens, and dots only
 //   - Each label (between dots) is 1-63 chars, must not start or end with '-'
 //   - Total length <= 253 chars
+//
 // The returned string is the lowercased canonical form.
 func ValidateDNSName(s string) (string, error) {
 	s = strings.ToLower(strings.TrimSpace(s))

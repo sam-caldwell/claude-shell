@@ -13,14 +13,14 @@ import (
 // --- stubs ------------------------------------------------------------------
 
 type fakeLocal struct {
-	sessions     []session.Metadata
-	deleted      string
-	overridden   string
-	updated      string
-	cloneSrc     string
-	cloneName    string
-	listErr      error
-	locked       map[string]bool
+	sessions   []session.Metadata
+	deleted    string
+	overridden string
+	updated    string
+	cloneSrc   string
+	cloneName  string
+	listErr    error
+	locked     map[string]bool
 }
 
 func (f *fakeLocal) List() ([]session.Metadata, error) { return f.sessions, f.listErr }

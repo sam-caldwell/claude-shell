@@ -53,12 +53,12 @@ const (
 
 // Paths holds resolved filesystem paths for convocate.
 type Paths struct {
-	ConvocateHome string
-	SessionsBase  string
-	SkelDir       string
+	ConvocateHome   string
+	SessionsBase    string
+	SkelDir         string
 	ConvocateConfig string
-	SSHDir        string
-	GitConfig     string
+	SSHDir          string
+	GitConfig       string
 }
 
 // ResolvePaths resolves all paths based on the convocate user's home directory.
